@@ -1,0 +1,29 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    ogType: string;
+    ogUrl: string;
+}
+
+const {
+    title,
+    description,
+    ogType,
+    ogUrl,
+} = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<!-- ogpの設定 -->
+<meta property="og:title" content{title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={ogUrl} />
+<meta property="og:site_name" content="SHINNの研究室" />
+<meta property="og:locale" content="ja_JP" />
