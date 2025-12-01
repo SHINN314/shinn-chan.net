@@ -19,7 +19,7 @@ const {
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="ja">
+<html lang="ja" class="h-full">
     <head>
         <BaseHead
             title={title}
@@ -28,9 +28,9 @@ const {
             ogUrl={ogUrl}
         />
     </head>
-    <body>
+    <body class="h-full flex flex-col">
         <Header />
-        <main class="container mx-auto px-4"><slot /></main>
+        <main class="container mx-auto px-4 grow"><slot /></main>
         <Footer />
     </body>
 </html>
