@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "NotoSansJP";
+  src: url("/public/fonts/A.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansJP";
+  src: url("/fonts/NotoSansJP-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+
+  h1 {
+    @apply text-4xl font-bold leading-tight mb-4;
+  }
+
+  h2 {
+    @apply text-3xl font-bold leading-tight mb-3;
+  }
+
+  h3 {
+    @apply text-2xl font-bold leading-snug mb-2;
+  }
+
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+}
