@@ -1,8 +1,55 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Primary colors */
+  --color-primary-50: #edf9ff;
+  --color-primary-100: #d7f1ff;
+  --color-primary-200: #b9e8ff;
+  --color-primary-300: #88dbff;
+  --color-primary-400: #50c5ff;
+  --color-primary-500: #28a7ff;
+  --color-primary-600: #1e90ff;
+  --color-primary-700: #0a71eb;
+  --color-primary-800: #0f5abe;
+  --color-primary-900: #134e95;
+  --color-primary-950: #11305a;
+
+  /* Secondary colors */
+  --color-secondary-50: #fff9ed;
+  --color-secondary-100: #fff1d4;
+  --color-secondary-200: #ffdea8;
+  --color-secondary-300: #ffc670;
+  --color-secondary-400: #ffa237;
+  --color-secondary-500: #ff8d1e;
+  --color-secondary-600: #f06a06;
+  --color-secondary-700: #c74f07;
+  --color-secondary-800: #9e3e0e;
+  --color-secondary-900: #7f350f;
+  --color-secondary-950: #451805;
+
+  /* Brand colors */
+  --color-blue: #1fb6ff;
+  --color-purple: #7e5bef;
+  --color-pink: #ff49db;
+  --color-orange: #ff7849;
+  --color-green: #13ce66;
+  --color-yellow: #ffc82c;
+
+  /* Gray colors */
+  --color-gray-100: #eee;
+  --color-gray-600: #ccc;
+  --color-gray-700: #999;
+  --color-gray-800: #666;
+  --color-gray-900: #333;
+
+  /* Font family */
+  --font-sans: "NotoSansJP", sans-serif;
+}
 
 @font-face {
   font-family: "NotoSansJP";
-  src: url("/public/fonts/A.ttf") format("ttf");
+  src: url("/fonts/NotoSansJP-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -18,22 +65,32 @@
 
 @layer base {
   body {
-    @apply font-sans;
+    font-family: "NotoSansJP", sans-serif;
   }
 
   h1 {
-    @apply text-4xl font-bold leading-tight mb-4;
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 1.25;
+    margin-bottom: 1rem;
   }
 
   h2 {
-    @apply text-3xl font-bold leading-tight mb-3;
+    font-size: 1.875rem;
+    font-weight: bold;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
   }
 
   h3 {
-    @apply text-2xl font-bold leading-snug mb-2;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
   }
 
   p {
-    @apply mb-4 leading-relaxed;
+    margin-bottom: 1rem;
+    line-height: 1.625;
   }
 }
