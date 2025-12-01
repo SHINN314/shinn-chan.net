@@ -1,20 +1,15 @@
 ---
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import "@/styles/global.css";
 ---
-
-<!doctype html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My Astro Page</title>
-		<meta name="description" content="My personal website" />
-	<body>
-		<div>
-			<h1>Welcome to My Astro Page</h1>
-			<h2>This is the homepage.</h2>
-			<h3>Enjoy your stay!</h3>
-			<p>This is a sample paragraph on the homepage.</p>
-		</div>
-	</body>
-</html>
+<BaseLayout
+	title="ホーム - SHINNの研究室"
+	description="SHINNの研究室のホームです。"
+	ogType="webSite"
+	ogUrl="https://shinn-chan.net/"
+>
+	<h1>hoge</h1>
+	<h2>hoge</h2>
+	<h3>hoge</h3>
+	<p>hoge</p>
+</BaseLayout>
