@@ -61,30 +61,4 @@
     font-family: "NotoSansJP", sans-serif;
     color: var(--color-gray-700);
   }
-
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 1.25;
-    margin-bottom: 1rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 1.25;
-    margin-bottom: 0.75rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    line-height: 1.25;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-    line-height: 1.625;
-  }
 }
