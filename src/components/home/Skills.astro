@@ -1,0 +1,41 @@
+---
+import Header2 from "@/components/common/Header2.astro";
+import Text from "@/components/common/Text.astro";
+import SkillIcon from "@/components/home/SkillIcon.astro";
+
+const skills = [
+    "skill-icons:python-light",
+    "skill-icons:tensorflow-light",
+    "skill-icons:scikitlearn-light",
+    "skill-icons:fastapi",
+    "skill-icons:latex-light",
+    "skill-icons:html",
+    "skill-icons:css",
+    "skill-icons:javascript",
+    "skill-icons:typescript",
+    "skill-icons:astro",
+    "skill-icons:vuejs-light",
+    "skill-icons:nuxtjs-light",
+    "skill-icons:react-light",
+    "skill-icons:nextjs-light",
+    "skill-icons:prisma",
+    "skill-icons:c",
+    "skill-icons:matlab-light",
+    "skill-icons:java-light",
+    "skill-icons:linux-light",
+    "skill-icons:cloudflare-light",
+    "skill-icons:supabase-light",
+    "skill-icons:github-light",
+    "skill-icons:docker",
+    "skill-icons:figma-light",
+];
+---
+
+<Header2>Skills</Header2>
+<Text>今までに触れたことのある技術です。</Text>
+<div class="flex flex-wrap justify-center gap-4 mb-4">
+    {skills.map((skill) => (
+        <SkillIcon iconName={skill} class="w-8 h-8"/>
+    ))}
+</div>
+
