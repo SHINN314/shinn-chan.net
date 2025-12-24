@@ -1,0 +1,10 @@
+---
+interface Props {
+    keyword: string;
+}
+
+const { keyword } = Astro.props;
+---
+<div class="bg-gray-100 w-fit p-2 rounded-md text-sm">
+    {keyword}
+</div>

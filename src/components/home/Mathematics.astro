@@ -1,0 +1,70 @@
+---
+import Header2 from "@/components/common/Header2.astro";
+import Header3 from "@/components/common/Header3.astro";
+import Text from "@/components/common/Text.astro";
+import Keyword from "@/components/home/Keyword.astro";
+
+interface knowledge {
+    field: string;
+    keywords: string[];
+}
+
+const knwoledges: knowledge[] = [
+    {
+        field: "代数学",
+        keywords: [
+            "線形代数",
+            "群論",
+        ]
+    },
+    {
+        field: "解析学",
+        keywords: [
+            "微分積分学",
+            "微分方程式",
+            "複素解析",
+            "フーリエ解析",
+            "ベクトル解析"
+        ]
+    },
+    {
+        field: "確率・統計",
+        keywords: [
+            "確率論",
+            "測度論",
+            "統計学",
+            "ベイズ統計",
+            "情報理論",
+        ]
+    },
+    {
+        field: "離散数学",
+        keywords: [
+            "論理学",
+            "集合論",
+            "グラフ理論",
+            "離散幾何",
+            "形式言語理論",
+        ]
+    },
+    {
+        field: "その他",
+        keywords: [
+            "数値計算",
+            "オペレーションズリサーチ",
+        ]
+    }
+]
+---
+<Header2>Mathematics</Header2>
+<Text>今までに学んできた数学の知識です。</Text>
+{knwoledges.map((knowledge) => (
+    <div class="mb-6">
+        <Header3>{knowledge.field}</Header3>
+        <div class="flex flex-wrap gap-2">
+            {knowledge.keywords.map((keyword) => (
+                <Keyword keyword={keyword} />
+            ))}
+        </div>
+    </div>
+))}
