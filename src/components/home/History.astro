@@ -1,0 +1,101 @@
+---
+import Header2 from "@/components/common/Header2.astro";
+import Header4 from "@/components/common/Header4.astro";
+import Card from "@/components/common/Card.astro";
+import List from "@/components/common/List.astro";
+import Text from "@/components/common/Text.astro";
+
+type events = {
+    title: string;
+    paragraph: string;
+}
+
+const historyItems: {year: number; events: events[]}[] =[
+    {
+        year: 2023,
+        events: [
+            {
+                title: "電気通信大学に入学",
+                paragraph: "Ⅰ類のコンピュータサイエンスプログラムに所属してコンピュータサイエンスを専攻しています。"
+            },
+            {
+                title: "執行委員会に所属",
+                paragraph: "いわゆる生徒会的な立ち位置の組織に所属し、ホームページの管理などを行いました。"
+            },
+            {
+                title: "ピアノの会に所属",
+                paragraph: "聞き専ですがピアノが好きだったので入部しました。"
+            },
+            {
+                title: "team411に所属",
+                paragraph: "電通大の技術系サークルに入部し、様々なプロジェクトに携わらせてもらいました。"
+            }
+        ],
+    },
+    {
+        year: 2024,
+        events: [
+            {
+                title: "調布祭実行委員会に所属",
+                paragraph: "電通大の学園祭である「調布祭」の運営メンバーとして活動しました。私は技術局に所属し、学園祭のwebサイトの制作に携わりました。"
+            },
+            {
+                title: "U☆PoCで受賞",
+                paragraph: "「uBoard」という大学向けポータルサイトの開発プロジェクトに参加し、学内コンテストであるU☆PoCで企業賞を受賞しました。"
+            },
+            {
+                title: "モバイルオーダーシステムのデータ分析を実施",
+                paragraph: "team411のプロジェクトであるモバイルオーダシステムで、実際に得られた購買データの分析を行いました。"
+            }
+        ],
+    },
+    {
+        year: 2025,
+        events: [
+            {
+                title: "モバイルオーダーシステムのプロジェクトに参加",
+                paragraph: "昨年度行ったデータ分析の経験を踏まえ、モバイルオーダーシステム導入店舗の待ち時間予測モデルの作成とAPI開発の実装を行いました。"
+            }
+        ]
+    }
+];
+---
+<Header2>History</Header2>
+<div class="my-8">
+    {historyItems.map((item, yearIndex) => (
+        <div class="relative">
+            {item.events.map((event, eventIndex) => (
+                <div class="flex gap-4 sm:gap-6 md:gap-8">
+                    {/* 日付部分 */}
+                    <div class="w-16 sm:w-20 md:w-24 shrink-0 pt-1">
+                        {eventIndex === 0 && (
+                            <div class="inline-block bg-primary-100 text-primary-700 px-3 py-1.5 rounded-lg font-bold text-base sm:text-lg shadow-sm">
+                                {item.year}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* タイムライン部分（縦線とドット） */}
+                    <div class="relative flex flex-col items-center">
+                        {/* 上部の縦線（最初のイベント以外） */}
+                        {!(yearIndex === 0 && eventIndex === 0) && (
+                            <div class="w-0.5 bg-primary-300 h-2 shrink-0"></div>
+                        )}
+                        
+                        {/* ドット */}
+                        <div class="w-4 h-4 rounded-full bg-primary-500 border-4 border-white shadow-md z-10 shrink-0"></div>
+                        
+                        {/* 下部の縦線（すべてのイベントに表示） */}
+                        <div class="w-0.5 bg-primary-300 flex-1 min-h-16"></div>
+                    </div>
+
+                    {/* コンテンツ部分 */}
+                    <div class="flex-1 pt-0 pb-8 last:pb-0">
+                        <Header4>{event.title}</Header4>
+                        <Text class="text-gray-700 mt-2 leading-relaxed">{event.paragraph}</Text>
+                    </div>
+                </div>
+            ))}
+        </div>
+    ))}
+</div>

@@ -1,12 +1,19 @@
-<!doctype html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My Astro Page</title>
-		<meta name="description" content="My personal website" />
-	</head>
-	<body>
-		<p>Hello World!</p>
-	</body>
-</html>
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header1 from "@/components/common/Header1.astro";
+import Profile from "@/components/home/Profile.astro";
+import History from "@/components/home/History.astro";
+import Mathematics from "@/components/home/Mathematics.astro";
+import Skills from "@/components/home/Skills.astro";
+---
+<BaseLayout
+	title="ホーム - SHINNの研究室"
+	description="SHINNの研究室のホームです。"
+	ogType="webSite"
+	ogUrl="https://shinn-chan.net/"
+>
+	<Profile />
+	<History />
+	<Skills />
+	<Mathematics />
+</BaseLayout>

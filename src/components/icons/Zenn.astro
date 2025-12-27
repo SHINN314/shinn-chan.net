@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+import zennIcon from "@/assets/zenn_logo.svg";
+
+const props = Astro.props;
+---
+
+<a 
+    href="https://zenn.dev/shinn_dev" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    aria-label="Zenn"
+    class="inline-block hover:opacity-70 transition-opacity"
+>
+    <Image 
+        src={zennIcon}
+        alt="Zennアイコン"
+        class={props.class}
+    />
+</a>

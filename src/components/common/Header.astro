@@ -1,0 +1,65 @@
+---
+import '@fortawesome/fontawesome-free/css/all.css';
+
+interface link {
+    href: string;
+    label: string;
+}
+
+const links: link[] = [
+    { href: '/', label: 'Home' },
+    { href: '/blogs/', label: 'Blogs' },
+    { href: "/activity/", label: "Activity"}
+];
+---
+<header class="bg-linear-to-b from-primary-600 to-primary-500 text-white px-4 py-6 mb-4 rounded-br-xl rounded-bl-xl shadow-xl relative">
+    <!-- Hidden Checkbox for Menu State -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
+
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-2xl font-bold">
+            SHINNの研究室
+        </div>
+        
+        <!-- Desktop Navigation (md以上で表示) -->
+        <nav class="hidden md:block">
+            <ul class="flex gap-6">
+                {links.map(link => (
+                    <li>
+                        <a href={link.href} class="hover:text-gray-200 font-bold">
+                            {link.label}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+
+        <!-- Hamburger Button (mdより小さい画面で表示) -->
+        <label for="menu-toggle" class="md:hidden text-2xl cursor-pointer" aria-label="メニューを開く">
+            <i class="fas fa-bars"></i>
+        </label>
+    </div>
+
+    <!-- Overlay (メニューが開いているときの背景) -->
+    <label for="menu-toggle" class="hidden peer-checked:block fixed inset-0 bg-black/50 bg-opacity-50 z-40 md:hidden"></label>
+
+    <!-- Mobile Menu (mdより小さい画面で表示) -->
+    <nav class="fixed top-0 right-0 h-full w-64 bg-primary-600 shadow-2xl z-50 transform translate-x-full peer-checked:translate-x-0 transition-transform duration-300 ease-in-out md:hidden">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+                <label for="menu-toggle" class="text-2xl cursor-pointer" aria-label="メニューを閉じる">
+                    <i class="fas fa-times"></i>
+                </label>
+            </div>
+            <ul class="flex flex-col gap-4 px-6">
+                {links.map(link => (
+                    <li>
+                        <a href={link.href} class="block py-3 hover:text-gray-200 font-bold text-lg border-b border-primary-400">
+                            {link.label}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </nav>
+</header>

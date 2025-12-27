@@ -1,0 +1,30 @@
+---
+import { getIconData, iconToSVG } from '@iconify/utils';
+import { icons as skillIcons } from '@iconify-json/skill-icons';
+
+interface Props {
+    iconName: string;
+    class?: string;
+}
+
+const { iconName, class: className } = Astro.props;
+
+// "skill-icons:typescript" -> ["skill-icons", "typescript"]
+const [prefix, name] = iconName.split(':');
+
+// アイコンデータを取得
+const iconData = getIconData(skillIcons, name);
+
+let renderData = null;
+if (iconData) {
+    renderData = iconToSVG(iconData);
+}
+---
+
+{renderData && (
+    <svg 
+        {...renderData.attributes}
+        class={className}
+        set:html={renderData.body}
+    />
+)}

@@ -1,0 +1,42 @@
+---
+import Header2 from "@/components/common/Header2.astro";
+import Header3 from "@/components/common/Header3.astro";
+import Text from "@/components/common/Text.astro";
+import LinkCard from "@/components/common/LinkCard.astro";
+
+interface work {
+    title: string;
+    url: string;
+    description: string;
+}
+
+const works: work[] = [
+    {
+        title: "組み合わせゲーム理論の確率的解析",
+        url: "https://github.com/SHINN314/cgt",
+        description: "電通大の授業の一つである「情報工学工房」で取り組んでいるものです。Chompというゲームについて、ランダムにゲームを進めたときにどのような数学的特徴が現れるかを調べています。"
+    },
+    {
+        title: "uBoard",
+        url: "https://uboard.info/",
+        description: "大学の散らばった情報を一元化して用意にアクセスすることを目的として作られたサービスです。私が初めて携わったプロジェクトでもあります。"
+    },
+    {
+        title: "第74回調布祭公式サイト",
+        url: "https://74th.chofusai.jp/",
+        description: "電通大の学園祭である「調布祭」の第74回公式サイトです。企画情報のデザインと実装を担当しました。"
+    },
+    {
+        title: "MO",
+        url: "https://team411.net/projects/mo/",
+        description: "学園祭の模擬店への支援を目的としたモバイルオーダーシステムです。その中でも、導入店舗の待ち時間を予測する機械学習モデルと、その予測結果を返すAPIの開発を行いました。"
+    },
+]
+---
+<Header2>Works</Header2>
+<Text>これまでに携わってきたプロジェクトや、個人的に取り組んできたものを紹介します。</Text>
+{works.map((work) => (
+    <Header3>{work.title}</Header3>
+    <Text>{work.description}</Text>
+    <LinkCard url={work.url} />
+))}
