@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Header2 from "@/components/common/Header2.astro";
+import Text from '@/components/common/Text.astro';
+import List from "@/components/common/List.astro";
+
+const allBlogs = await getCollection('blog');
+---
+<Header2>Individual Blogs</Header2>
+<Text>個人的な出来事などを綴ったブログです。</Text>
+{allBlogs.length === 0 ? (
+    <Text>現在ブログはまだありません。</Text>
+) : (
+    <ul>
+        {allBlogs.map((blog) => (
+            <li>
+                <a href={`/blogs/${blog.id.replace(/\.(md|mdx)$/, '')}`}>{blog.data.title}</a>
+            </li>
+        ))}
+    </ul>
+)}
