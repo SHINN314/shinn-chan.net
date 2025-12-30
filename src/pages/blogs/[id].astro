@@ -1,0 +1,31 @@
+---
+import { getCollection, type CollectionEntry, render } from 'astro:content';
+import BlogPost from '@/layouts/BlogPost.astro';
+import Header2 from '@/components/common/Header2.astro';
+import Header3 from '@/components/common/Header3.astro';
+import Header4 from '@/components/common/Header4.astro';
+import Text from '@/components/common/Text.astro';
+
+export async function getStaticPaths() {
+	const blogs = await getCollection('blog');
+	return blogs.map((blog) => ({
+		params: { id: blog.id.replace(/\.(md|mdx)$/, '') },
+		props: blog,
+	}));
+}
+
+const blog: CollectionEntry<'blog'> = Astro.props;
+const { Content } = await render(blog);
+
+// マークダウンの要素にカスタムコンポーネントを割り当て
+const components = {
+	h1: Header2,
+	h2: Header3,
+	h3: Header4,
+	p: Text,
+};
+---
+
+<BlogPost blog={blog}>
+	<Content components={components} />
+</BlogPost>
