@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Header2 from "@/components/common/Header2.astro";
 import Text from '@/components/common/Text.astro';
-import List from "@/components/common/List.astro";
+import BlogCard from '@/components/blogs/BlogCard.astro';
 
 const allBlogs = await getCollection('blog');
 ---
@@ -14,7 +14,7 @@ const allBlogs = await getCollection('blog');
     <ul>
         {allBlogs.map((blog) => (
             <li>
-                <a href={`/blogs/${blog.id.replace(/\.(md|mdx)$/, '')}`}>{blog.data.title}</a>
+                <BlogCard title={blog.data.title} description={blog.data.description} image={blog.data.heroImage} pubDate={blog.data.pubDate} url={`/blogs/${blog.id.replace(/\.(md|mdx)$/, '')}`} />
             </li>
         ))}
     </ul>
