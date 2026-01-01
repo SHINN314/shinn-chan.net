@@ -1,23 +1,32 @@
 ---
 import Card from "@/components/common/Card.astro";
 import CustomImage from "@/components/common/CustomImage.astro";
+import Icon from "@/components/common/Icon.astro";
+import Text from "@/components/common/Text.astro";
 
 interface Props {
     title: string;
     description: string;
-    image: string | ImageMetadata;
-    pubDate: string;
+    image?: string | ImageMetadata;
+    pubDate: Date;
     url: string;
 }
 
 const { title, description, image, pubDate, url } = Astro.props
 ---
-<Card>
-    <CustomImage 
-        src={image} 
-        alt={title} 
-        width={400} 
-        height={200}
-        class="w-full h-48 object-cover rounded-t-lg" 
-    />
-</Card>
+<a href={url} target="_blank" rel="noopener noreferrer" class="no-underline text-inherit">
+    <Card>
+        <CustomImage 
+            src={image} 
+            alt={title} 
+            width={400} 
+            height={200}
+            class="w-full h-48 object-cover rounded-t-lg" 
+        />
+        <div class="flex items-center">
+            <Icon name="tabler:calendar-time" />
+            <time datetime={pubDate.toISOString()} class="text-sm text-gray-500 ml-1">{pubDate.toLocaleDateString('ja-JP')}</time>
+        </div>
+        <Text>{description}</Text>
+    </Card>
+</a>
