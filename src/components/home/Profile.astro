@@ -1,5 +1,5 @@
 ---
-import CustomImage from "@/components/common/CustomImage.astro";
+import { Image } from "astro:assets";
 import Card from "@/components/common/Card.astro";
 import GithubDark from "@/components/icons/GithubDark.astro";
 import Twitter from "@/components/icons/Twitter.astro";
@@ -9,12 +9,14 @@ import profileIconImage from "@/assets/profile_icon.png";
 <Card>
     <div class="">
         <div class="w-64 h-64 mx-auto mb-4 overflow-hidden rounded-full">
-            <CustomImage 
+            <Image 
                 src={profileIconImage} 
                 width={250} 
                 height={250} 
                 alt="プロフィールアイコン" 
                 class="w-full h-full object-cover object-center"
+                format="webp"
+                sizes="250px"
             />
         </div>
         <div class="text-center">
