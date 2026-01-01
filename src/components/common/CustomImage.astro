@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import noImageSrc from "@/assets/no_image.png";
+
+interface Props {
+  src?: ImageMetadata | string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+}
+
+const { src, alt, width, height, class: className } = Astro.props;
+
+const isLocal = src && typeof src === "object";
+const isRemote = typeof src === "string";
+---
+{isLocal ? (
+  <Image
+    src={src as ImageMetadata}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading="lazy"
+  />
+) : isRemote ? (
+  <img
+    src={src as string}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading="lazy"
+  />
+) : (
+  <Image
+    src={noImageSrc}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading="lazy"
+  />
+)}
