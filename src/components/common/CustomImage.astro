@@ -33,6 +33,7 @@ const isRemote = typeof src === "string";
     height={height}
     class={className}
     loading="lazy"
+    onerror="this.onerror=null; this.src='/src/assets/no_image.png';"
   />
 ) : (
   <Image
