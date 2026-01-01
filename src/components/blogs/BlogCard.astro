@@ -1,0 +1,23 @@
+---
+import Card from "@/components/common/Card.astro";
+import CustomImage from "@/components/common/CustomImage.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    image: string | ImageMetadata;
+    pubDate: string;
+    url: string;
+}
+
+const { title, description, image, pubDate, url } = Astro.props
+---
+<Card>
+    <CustomImage 
+        src={image} 
+        alt={title} 
+        width={400} 
+        height={200}
+        class="w-full h-48 object-cover rounded-t-lg" 
+    />
+</Card>
