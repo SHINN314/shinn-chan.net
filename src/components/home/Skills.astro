@@ -1,7 +1,7 @@
 ---
 import Header2 from "@/components/common/Header2.astro";
 import Text from "@/components/common/Text.astro";
-import SkillIcon from "@/components/home/SkillIcon.astro";
+import Icon from "@/components/common/Icon.astro";
 
 const skills = [
     "skill-icons:python-light",
@@ -35,7 +35,7 @@ const skills = [
 <Text>今までに触れたことのある技術です。</Text>
 <div class="flex flex-wrap justify-center gap-4 mb-4">
     {skills.map((skill) => (
-        <SkillIcon iconName={skill} class="w-8 h-8 hover:shadow-xl rounded-xl duration-300"/>
+        <Icon name={skill} class="w-8 h-8 hover:shadow-xl rounded-xl duration-300"/>
     ))}
 </div>
 
