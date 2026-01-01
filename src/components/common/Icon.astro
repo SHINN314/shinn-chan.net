@@ -1,0 +1,22 @@
+---
+interface Props {
+  name: string;        // tabler:xxx / svglogos:xxx
+  size?: number;
+  class?: string;
+  title?: string;
+}
+
+const {
+  name,
+  size = 24,
+  class: className = "",
+  title,
+} = Astro.props;
+---
+<span
+  class={`iconify ${className}`}
+  data-icon={name}
+  data-width={size}
+  role={title ? "img" : undefined}
+  aria-label={title}
+/>
